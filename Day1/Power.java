@@ -2,15 +2,22 @@ import java.util.*;
 class Power{
 	public static void main(String[] args)
 	{
-		int n;
-		System.out.println("Enter a number");
+		int num, nextValue = 1;
 		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		double num=0.0,result=0.0;
-		for (i = 1; i <= n; i++) {
-			num = num + (1 / i);
-			result = num;
+		num = sc.nextInt();
+		if (num > 31) {
+			System.out.println("Value out of range");
+			return;
 		}
-		System.out.println("Harmonic Value of " + n + " is: " + result);
+		else {
+			System.out.println(nextValue);
+			for (int j = 1; j <= num; j++) {
+				nextValue = nextValue * 2;
+				if(nextValue<=Math.pow(2,num))
+				{
+					System.out.println(nextValue);
+				}
+			}
+		}
 	}
 }

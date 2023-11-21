@@ -33,6 +33,22 @@ class EmployeeWageComputation
 		int wagePerHour = 20, workingHours = 2, noOfDays = 20;
 		System.out.println("The monthly wage of part time employees is: "+ wagePerHour * workingHours * noOfDays);
 	}
+	static void Uc6_EmployeeConditionalWage()
+	{
+		Scanner sc = new Scanner(System.in);
+		int noOfHours;
+		System.out.println("Enter the number of hours: ");
+		noOfHours = sc.nextInt();
+		int wagePerHour = 20;
+		if(noOfHours>100)
+		{
+			System.out.println("Wage of the employee is: "+ 100 * wagePerHour);
+		}
+		else
+		{
+			System.out.println("Wage of the employee is: "+ noOfHours * wagePerHour);
+		}
+	}
 	public static void main(String[] args)
 	{
 		System.out.println("Welcome to employee computation problem");
@@ -40,5 +56,6 @@ class EmployeeWageComputation
 		Uc2_FullTimeWage();
 		Uc3_PartTimeWage();
 		Uc5_MonthlyWage();
+		Uc6_EmployeeConditionalWage();
 	}
 }

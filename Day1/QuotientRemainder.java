@@ -1,19 +1,13 @@
 import java.util.*;
-class SwapNumbers{
+class QuotientRemainder{
 	public static void main(String[] args) {
 		int a,b;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the first number a: ");
+		System.out.print("Enter the dividend: ");
 		a = sc.nextInt();
-		System.out.print("Enter the second number b: ");
+		System.out.print("Enter the divisor: ");
 		b = sc.nextInt();
-		int temp;
-		temp = b;
-		b = a;
-		a = temp;
-		System.out.println("The numbers after swapping are: ");
-		System.out.println("a= "+a);
-		System.out.println("b= "+b);
+		System.out.println("The quotient is: "+(a/b));
+		System.out.println("The remainder is: "+(a%b));
 	}
-
 }

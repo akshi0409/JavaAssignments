@@ -52,10 +52,28 @@ class EmployeeWageComputation
 	public static void main(String[] args)
 	{
 		System.out.println("Welcome to employee computation problem");
-		Uc1_Attendance();
-		Uc2_FullTimeWage();
-		Uc3_PartTimeWage();
-		Uc5_MonthlyWage();
-		Uc6_EmployeeConditionalWage();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number:\n1 for attendance,\n2 for full time wage,\n3 for part time wage,\n5 for monthly wage,\n6 for conditional wage");
+		int choice = sc.nextInt(); 
+		switch(choice)
+		{
+		case 1:
+			Uc1_Attendance();
+			break;
+		case 2:
+			Uc2_FullTimeWage();
+			break;
+		case 3:
+			Uc3_PartTimeWage();
+			break;
+		case 5:
+			Uc5_MonthlyWage();
+			break;
+		case 6:
+			Uc6_EmployeeConditionalWage();
+			break;
+		default:
+			System.out.println("Invalid Choice");
+		}
 	}
 }

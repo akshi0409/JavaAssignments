@@ -28,11 +28,17 @@ class EmployeeWageComputation
 		int wagePerHour = 20, workingHours = 2;
 		System.out.println("The wage of part time employees is: "+ wagePerHour * workingHours);
 	}
+	static void Uc5_MonthlyWage()
+	{
+		int wagePerHour = 20, workingHours = 2, noOfDays = 20;
+		System.out.println("The monthly wage of part time employees is: "+ wagePerHour * workingHours * noOfDays);
+	}
 	public static void main(String[] args)
 	{
 		System.out.println("Welcome to employee computation problem");
 		Uc1_Attendance();
 		Uc2_FullTimeWage();
 		Uc3_PartTimeWage();
+		Uc5_MonthlyWage();
 	}
 }

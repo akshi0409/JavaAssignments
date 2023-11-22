@@ -11,13 +11,14 @@ public class SnakeAndLadderGame
 		int currentPosition = startPosition;
 		while(currentPosition<=100)
 		{
+			noOfRolls++;
 			diceNumber = (int) Math.ceil(Math.random()*6);
 			currentPosition+=diceNumber;
 			if(currentPosition>100)
 			{
 				currentPosition-=diceNumber;
 				System.out.println("No Play! Out of Bounds! You can't move for now");
-				break;
+				continue;
 			}
 			System.out.println("The current position is: "+currentPosition);
 			if(currentPosition == 100)
@@ -39,5 +40,6 @@ public class SnakeAndLadderGame
 				}
 			}
 		}
+		System.out.println("The number of moves in which the game was won is: "+noOfRolls);
 	}
 }

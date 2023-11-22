@@ -27,10 +27,22 @@ class LineComparison
 			return false;
 		}
 	}
+	static void Uc3_compareLengths(double dist1,double dist2)
+	{
+		String d1 = Double.toString(dist1);
+		String d2 = Double.toString(dist2);
+		if(d1.compareTo(d2)>0)
+		{
+			System.out.println("First line is greater than second");
+		}
+		else
+		{
+			System.out.println("Second line is greater than first");
+		}
+	}
 	public static void main(String args[])
 	{
 		System.out.println("Welcome to Line Comparison Problem");
-		
 		double distBetweenPoints1 = Uc1_LengthBetweenPoints();
 		System.out.println("The distance between the points is of first line is: "+distBetweenPoints1);
 		double distBetweenPoints2 = Uc1_LengthBetweenPoints();
@@ -42,7 +54,7 @@ class LineComparison
 		}
 		else
 		{
-			System.out.println("The two lines are not equal");
+			Uc3_compareLengths(distBetweenPoints1,distBetweenPoints2);
 		}
 	}
 }

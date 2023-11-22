@@ -9,27 +9,34 @@ public class SnakeAndLadderGame
 		int noOfRolls = 0, startPosition = 0, diceNumber = 0;
 		System.out.println("The start position is: "+startPosition);
 		int currentPosition = startPosition;
-		diceNumber = (int) Math.ceil(Math.random()*6);
-		System.out.println("The number on the dice is: "+diceNumber);
-		currentPosition+=diceNumber;
-
-		for(int i=0;i<4;i++)
+		while(currentPosition<=100)
 		{
-			if(currentPosition == snakesList[i][0])
+			diceNumber = (int) Math.ceil(Math.random()*6);
+			currentPosition+=diceNumber;
+			System.out.println("The current position is: "+currentPosition);
+			if(currentPosition == 100)
 			{
-				currentPosition=snakesList[i][1];
-				System.out.println("This position has a snake");
+				System.out.println("Congratulations you have won");
+				break;
 			}
-			if(currentPosition == ladderList[i][0])
+			for(int i=0;i<4;i++)
 			{
-				currentPosition=ladderList[i][1];
-				System.out.println("This position has a ladder");
+				if(currentPosition == snakesList[i][0])
+				{
+					currentPosition=snakesList[i][1];
+					System.out.println("There was a snake here, the current position is: "+currentPosition);
+				}
+				if(currentPosition == ladderList[i][0])
+				{
+					currentPosition=ladderList[i][1];
+					System.out.println("There was a ladder here, the current position is: "+currentPosition);
+				}
 			}
-		}
-		if(currentPosition>100)
-		{
-			currentPosition-=diceNumber;
-			System.out.println("No Play! You can't move for now!");
+			if(currentPosition>100)
+			{
+				currentPosition-=diceNumber;
+				System.out.println("No Play! You can't move for now");
+			}
 		}
 	}
 }

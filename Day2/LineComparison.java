@@ -19,9 +19,13 @@ class LineComparison
 		String d1 = Double.toString(dist1);
 		String d2 = Double.toString(dist2);
 		if(d1.equals(d2))
+		{
 			return true;
+		}
 		else
+		{
 			return false;
+		}
 	}
 	public static void main(String args[])
 	{

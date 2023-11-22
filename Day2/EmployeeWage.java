@@ -8,7 +8,7 @@ class EmployeeWage
 		System.out.println("Welcome to Employee Wage Computation Problem");
 		double empAttendance = Math.floor(Math.random() * 10) % 2;
 		int empHours = 0;
-		if(attd == FULL_TIME)
+		if(empAttendance == FULL_TIME)
 		{
 			System.out.println("Employee is present");
 			empHours = 8;

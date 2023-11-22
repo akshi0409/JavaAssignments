@@ -8,5 +8,8 @@ public class SnakeAndLadderGame
 		int[][] ladderList = {{9,26},{24,64},{50,62},{86,98}};
 		int noOfRolls = 0, startPosition = 0, diceNumber = 0;
 		System.out.println("The start position is: "+startPosition);
+		int currentPosition = startPosition;
+		diceNumber = (int) Math.ceil(Math.random()*6);
+		System.out.println("The number on the dice is: "+diceNumber);
 	}
 }

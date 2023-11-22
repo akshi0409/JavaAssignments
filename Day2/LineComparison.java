@@ -11,8 +11,8 @@ class LineComparison
 		System.out.println("Enter the y coordinate of point: ");
 		int x2 = sc.nextInt();
 		int y2 = sc.nextInt();
-		double distBetweenPoints = Math.pow(Math.abs(x1-x2),2) + Math.pow(Math.abs(y1-y2),2);
-		return Math.pow(distBetweenPoints,0.5);
+		double lengthBetweenPoints = Math.pow(Math.abs(x1-x2),2) + Math.pow(Math.abs(y1-y2),2);
+		return Math.pow(lengthBetweenPoints,0.5);
 	}
 	static boolean Uc2_findEqual(double dist1,double dist2)
 	{
@@ -43,18 +43,18 @@ class LineComparison
 	public static void main(String args[])
 	{
 		System.out.println("Welcome to Line Comparison Problem");
-		double distBetweenPoints1 = Uc1_LengthBetweenPoints();
-		System.out.println("The distance between the points is of first line is: "+distBetweenPoints1);
-		double distBetweenPoints2 = Uc1_LengthBetweenPoints();
-		System.out.println("The distance between the points is of second line is: "+distBetweenPoints2);
-		boolean isEqual = Uc2_findEqual(distBetweenPoints1,distBetweenPoints2);
+		double lengthBetweenPoints1 = Uc1_LengthBetweenPoints();
+		System.out.println("Length of first line is: "+lengthBetweenPoints1);
+		double lengthBetweenPoints2 = Uc1_LengthBetweenPoints();
+		System.out.println("Length of second line is: "+lengthBetweenPoints2);
+		boolean isEqual = Uc2_findEqual(lengthBetweenPoints1,lengthBetweenPoints2);
 		if(isEqual)
 		{
 			System.out.println("The two lines are equal");
 		}
 		else
 		{
-			Uc3_compareLengths(distBetweenPoints1,distBetweenPoints2);
+			Uc3_compareLengths(lengthBetweenPoints1,lengthBetweenPoints2);
 		}
 	}
 }

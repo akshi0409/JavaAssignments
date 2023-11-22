@@ -13,6 +13,12 @@ public class SnakeAndLadderGame
 		{
 			diceNumber = (int) Math.ceil(Math.random()*6);
 			currentPosition+=diceNumber;
+			if(currentPosition>100)
+			{
+				currentPosition-=diceNumber;
+				System.out.println("No Play! Out of Bounds! You can't move for now");
+				break;
+			}
 			System.out.println("The current position is: "+currentPosition);
 			if(currentPosition == 100)
 			{
@@ -31,11 +37,6 @@ public class SnakeAndLadderGame
 					currentPosition=ladderList[i][1];
 					System.out.println("There was a ladder here, the current position is: "+currentPosition);
 				}
-			}
-			if(currentPosition>100)
-			{
-				currentPosition-=diceNumber;
-				System.out.println("No Play! You can't move for now");
 			}
 		}
 	}

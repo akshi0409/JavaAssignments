@@ -11,5 +11,25 @@ public class SnakeAndLadderGame
 		int currentPosition = startPosition;
 		diceNumber = (int) Math.ceil(Math.random()*6);
 		System.out.println("The number on the dice is: "+diceNumber);
+		currentPosition+=diceNumber;
+
+		for(int i=0;i<4;i++)
+		{
+			if(currentPosition == snakesList[i][0])
+			{
+				currentPosition=snakesList[i][1];
+				System.out.println("This position has a snake");
+			}
+			if(currentPosition == ladderList[i][0])
+			{
+				currentPosition=ladderList[i][1];
+				System.out.println("This position has a ladder");
+			}
+		}
+		if(currentPosition>100)
+		{
+			currentPosition-=diceNumber;
+			System.out.println("No Play! You can't move for now!");
+		}
 	}
 }

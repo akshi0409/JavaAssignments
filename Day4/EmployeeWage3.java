@@ -42,7 +42,7 @@ class Employee
 		System.out.println("The monthly employee wage is: "+ findWage(empHours));
 	}
 }
-class EmployeeWage
+class EmployeeWage3
 {
 	public static void main(String args[])
 	{

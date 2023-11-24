@@ -1,6 +1,6 @@
 import java.util.*;
 import java.lang.*;
-class LineComparison
+class LineComparison1
 {
 	static double Uc1_LengthBetweenPoints()
 	{

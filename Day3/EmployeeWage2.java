@@ -1,5 +1,5 @@
 import java.util.*;
-class EmployeeWage
+class EmployeeWage2
 {
 	static final int WAGE_PER_HOUR = 20;
 	static final int WORKING_DAYS_COUNT = 30;

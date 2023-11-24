@@ -41,7 +41,7 @@ class Line
 		return Math.pow(lengthBetweenPoints,0.5);
 	}
 }
-class LineComparison
+class LineComparison2
 {
 	static boolean Uc2_findEqual(double dist1,double dist2)
 	{

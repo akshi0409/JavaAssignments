@@ -1,5 +1,4 @@
-import java.util.*;
-class EmployeeWage
+class EmployeeWage1
 {
 	public static void main(String args[])
 	{

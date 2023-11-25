@@ -12,17 +12,6 @@ class Contact
         zip = zipCode;
         phoneNumber = phnNumber;
     }
-    void display()
-    {
-        System.out.println("The details of the contact are: ");
-        System.out.println("First name : " + firstName);
-        System.out.println("Last name : " + lastName);
-        System.out.println("Address : " + address);
-        System.out.println("City : " + city);
-        System.out.println("State : " + state);
-        System.out.println("Zip : " + zip);
-        System.out.println("Phone number : " + phoneNumber);
-    }
 }
 public class AddressBook {
     public static void main(String args[])
@@ -39,6 +28,5 @@ public class AddressBook {
         zipCode = sc.nextLine();
         phnNumber = sc.nextLine();
         Contact c = new Contact(fName,lName,addressFull,cityName,stateName,zipCode,phnNumber);
-        c.display();
     }
 }

@@ -14,7 +14,7 @@ class Contact
     }
     void display()
     {
-        System.out.println("The details of the contact are: ");
+        System.out.println("The details of the contacts are: ");
         System.out.println("First name : " + firstName);
         System.out.println("Last name : " + lastName);
         System.out.println("Address : " + address);
@@ -68,24 +68,23 @@ public class AddressBook {
         {
             String fName,lName,addressFull,cityName,stateName,zipCode,phnNumber;
             System.out.println("Enter the firstname,lastname,address,city,state,zip and phone number");
-            fName = sc.nextLine();
-            lName = sc.nextLine();
-            addressFull = sc.nextLine();
-            cityName = sc.nextLine();
-            stateName = sc.nextLine();
-            zipCode = sc.nextLine();
-            phnNumber = sc.nextLine();
+            fName = sc.next();
+            lName = sc.next();
+            addressFull = sc.next();
+            cityName = sc.next();
+            stateName = sc.next();
+            zipCode = sc.next();
+            phnNumber = sc.next();
             c[i] = new Contact(fName,lName,addressFull,cityName,stateName,zipCode,phnNumber);
             c[i].display();
         }
         String searchFirst,searchLast;
         System.out.println("Enter the first name and last name of the contact you want to update.");
-        searchFirst = sc.nextLine();
-        searchLast = sc.nextLine();
+        searchFirst = sc.next();
+        searchLast = sc.next();
         for(int i=0;i<n;i++)
         {
-            if(c[i].findFirstName(searchFirst) && c[i].findLastName(searchLast))
-            {
+            if(c[i].findFirstName(searchFirst) && c[i].findLastName(searchLast)) {
                 System.out.println("Contact found. Choose the details to edit:");
 
                 System.out.println("1. Address, 2. City, 3. State, 4. Zip,5. Phone number");
@@ -118,7 +117,21 @@ public class AddressBook {
                         System.out.println("Invalid choice");
                 }
                 c[i].display();
+                break;
             }
+        }
+        System.out.println("Enter the first name and last name of the contact you want to delete.");
+        searchFirst = sc.next();
+        searchLast = sc.next();
+        for(int i=0;i<n;i++) {
+            if (c[i].findFirstName(searchFirst) && c[i].findLastName(searchLast)) {
+                c[i] = null;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(c[i]!=null)
+                c[i].display();
         }
     }
 }

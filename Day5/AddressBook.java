@@ -23,22 +23,102 @@ class Contact
         System.out.println("Zip : " + zip);
         System.out.println("Phone number : " + phoneNumber);
     }
+    boolean findFirstName(String name)
+    {
+        if(firstName.equals(name))
+            return true;
+        return false;
+    }
+    boolean findLastName(String name)
+    {
+        if(lastName.equals(name))
+            return true;
+        return false;
+    }
+    void setAddress(String addressFull) {
+        address = addressFull;
+    }
+
+    void setCity(String cityName) {
+        city = cityName;
+    }
+
+    void setState(String stateName) {
+        state = stateName;
+    }
+
+    void setZip(String zipCode) {
+        zip = zipCode;
+    }
+
+    void setPhoneNumber(String phnNumber) {
+        phoneNumber = phnNumber;
+    }
 }
 public class AddressBook {
     public static void main(String args[])
     {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
-        String fName,lName,addressFull,cityName,stateName,zipCode,phnNumber;
-        System.out.println("Enter the firstname,lastname,address,city,state,zip and phone number");
-        fName = sc.nextLine();
-        lName = sc.nextLine();
-        addressFull = sc.nextLine();
-        cityName = sc.nextLine();
-        stateName = sc.nextLine();
-        zipCode = sc.nextLine();
-        phnNumber = sc.nextLine();
-        Contact c = new Contact(fName,lName,addressFull,cityName,stateName,zipCode,phnNumber);
-        c.display();
+        int n;
+        System.out.println("Enter the number of contacts: ");
+        n = sc.nextInt();
+        Contact[] c = new Contact[n];
+        for(int i=0;i<n;i++)
+        {
+            String fName,lName,addressFull,cityName,stateName,zipCode,phnNumber;
+            System.out.println("Enter the firstname,lastname,address,city,state,zip and phone number");
+            fName = sc.nextLine();
+            lName = sc.nextLine();
+            addressFull = sc.nextLine();
+            cityName = sc.nextLine();
+            stateName = sc.nextLine();
+            zipCode = sc.nextLine();
+            phnNumber = sc.nextLine();
+            c[i] = new Contact(fName,lName,addressFull,cityName,stateName,zipCode,phnNumber);
+            c[i].display();
+        }
+        String searchFirst,searchLast;
+        System.out.println("Enter the first name and last name of the contact you want to update.");
+        searchFirst = sc.nextLine();
+        searchLast = sc.nextLine();
+        for(int i=0;i<n;i++)
+        {
+            if(c[i].findFirstName(searchFirst) && c[i].findLastName(searchLast))
+            {
+                System.out.println("Contact found. Choose the details to edit:");
+
+                System.out.println("1. Address, 2. City, 3. State, 4. Zip,5. Phone number");
+
+                int ch = sc.nextInt();
+                sc.nextLine();
+
+                switch (ch) {
+                    case 1:
+                        System.out.println("Enter the new address: ");
+                        c[i].setAddress(sc.nextLine());
+                        break;
+                    case 2:
+                        System.out.println("Enter the new city: ");
+                        c[i].setCity(sc.nextLine());
+                        break;
+                    case 3:
+                        System.out.println("Enter the new state: ");
+                        c[i].setState(sc.nextLine());
+                        break;
+                    case 4:
+                        System.out.println("Enter the new zip code: ");
+                        c[i].setZip(sc.nextLine());
+                        break;
+                    case 5:
+                        System.out.println("Enter the new phone number: ");
+                        c[i].setPhoneNumber(sc.nextLine());
+                        break;
+                    default:
+                        System.out.println("Invalid choice");
+                }
+                c[i].display();
+            }
+        }
     }
 }

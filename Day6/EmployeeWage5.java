@@ -8,7 +8,7 @@ interface CompanyStore
 }
 class EmpCompany implements CompanyStore
 {
-    int wagePerHour,totalWorkingDays,maxHours,totalEmpWage;
+    int wagePerHour,totalWorkingDays,maxHours,totalEmpWage,dailyWage;
     String company;
     int empHours = 0;
     EmpCompany(String name,int wage,int days,int hrs)
@@ -45,15 +45,18 @@ class EmpCompany implements CompanyStore
             {
                 case 1:
                     System.out.println("Employee is present and is full time");
+                    dailyWage = 8 * wagePerHour;
                     empHours+=8;
                     break;
                 case 2:
                     System.out.println("Employee is present and is part time.");
+                    dailyWage = 4 * wagePerHour;
                     empHours+=4;
                     break;
                 default:
                     System.out.println("Employee is absent");
             }
+            System.out.println("The wage for the day is : " + dailyWage);
         }
         totalEmpWage = empHours*wagePerHour;
         System.out.println("The monthly employee wage is: "+ totalEmpWage + " for company: "+company);
@@ -107,5 +110,6 @@ class EmployeeWage5
             builder.addCompany(name,wage,days,hrs);
         }
         builder.computeWage();
+
     }
 }

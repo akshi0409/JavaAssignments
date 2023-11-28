@@ -1,29 +1,10 @@
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Maxmin {
-    public static Integer findMax(Integer a, Integer b, Integer c) {
-        Integer max = a;
-        if (a.compareTo(max) > 0)
-            max = a;
-        if (b.compareTo(max)>0)
-            max = b;
-        if (c.compareTo(max)>0)
-            max=c;
-        return max;
-    }
-    public static Float findMax(Float a, Float b, Float c) {
-        Float max = a;
-        if (a.compareTo(max) > 0)
-            max = a;
-        if (b.compareTo(max)>0)
-            max = b;
-        if (c.compareTo(max)>0)
-            max=c;
-        return max;
-    }
-    public static String findMax(String a, String b, String c)
+    public static <E extends Comparable<E>> E findMax(E a, E b, E c)
     {
-        String max = a;
+        E max = a;
         if (a.compareTo(max) > 0)
             max = a;
         if (b.compareTo(max)>0)

@@ -25,18 +25,6 @@ class Contact2
         System.out.println("Zip : " + zip);
         System.out.println("Phone number : " + phoneNumber);
     }
-    boolean findFirstName(String name)
-    {
-        if(firstName.equals(name))
-            return true;
-        return false;
-    }
-    boolean findLastName(String name)
-    {
-        if(lastName.equals(name))
-            return true;
-        return false;
-    }
     void setAddress(String addressFull) {
         address = addressFull;
     }
@@ -58,23 +46,26 @@ class Contact2
     }
 }
 public class AddressBook2 {
-    LinkedList<Contact2>AddressList;
     Map<String,Contact2>AddressMap;
+
     AddressBook2()
     {
-        AddressList = new LinkedList<>();
         AddressMap = new HashMap<>();
     }
     void addContact(String fname,String lname,String addressFull,String cityName, String stateName,String zipCode, String phoneNumber)
     {
         Contact2 c = new Contact2(fname,lname,addressFull,cityName,stateName,zipCode,phoneNumber);
-        AddressList.add(c);
         AddressMap.put(fname+lname,c);
         c.display();
     }
     void searchContact(String searchName)
     {
         Contact2 c = (AddressMap.get(searchName));
+        if(c==null)
+        {
+            System.out.println("Contact not found!");
+            return;
+        }
         c.display();
         System.out.println("Contact found. Choose the details to edit:");
         System.out.println("1. Address, 2. City, 3. State, 4. Zip,5. Phone number");
@@ -110,22 +101,17 @@ public class AddressBook2 {
     }
     void deleteContact(String fname,String lname)
     {
-        AddressMap.remove(fname+lname);
-        for(int i=0;i<AddressList.size();i++)
-        {
-            String a = (AddressList.get(i)).firstName;
-            String b = (AddressList.get(i)).lastName;
-            if (a.equals(fname) && b.equals(lname))
-            {
-                AddressList.remove(AddressList.get(i));
-            }
-        }
+        Contact2 c = AddressMap.remove(fname+lname);
+        if(c==null)
+            System.out.println("Contact not found.");
+        System.out.println("Contact deleted!");
     }
     void displayAllContacts()
     {
-        for(int i=0;i<AddressList.size();i++)
+        for(String name : AddressMap.keySet())
         {
-            (AddressList.get(i)).display();
+            Contact2 c = AddressMap.get(name);
+            c.display();
         }
     }
     public static void main(String args[])
@@ -133,9 +119,22 @@ public class AddressBook2 {
         System.out.println("Welcome to Address Book");
         Scanner sc = new Scanner(System.in);
         int n;
+        Dictionary<String,AddressBook2>AddressBookList = new Hashtable<>();
+        System.out.println("Enter number of address books ");
+        n = sc.nextInt();
+        String nameBook;
+        for(int i=0;i<n;i++)
+        {
+            System.out.println("Enter the name of the book: ");
+            nameBook = sc.next();
+            AddressBook2 book = new AddressBook2();
+            AddressBookList.put(nameBook,book);
+        }
+        System.out.println("Enter the address book you want to edit : ");
+        nameBook = sc.next();
+        AddressBook2 book2 = AddressBookList.get(nameBook);
         System.out.println("Enter the number of contacts: ");
         n = sc.nextInt();
-        AddressBook2 book2 = new AddressBook2();
         for(int i=0;i<n;i++)
         {
             String fName,lName,addressFull,cityName,stateName,zipCode,phnNumber;
@@ -150,7 +149,7 @@ public class AddressBook2 {
             book2.addContact(fName,lName,addressFull,cityName,stateName,zipCode,phnNumber);
         }
         String searchfirstName,searchlastName;
-        System.out.println("Enter the first name and last name you want to search: ");
+        System.out.println("Enter the first name and last name you want to edit: ");
         searchfirstName = sc.next();
         searchlastName = sc.next();
         book2.searchContact(searchfirstName+searchlastName);
@@ -158,6 +157,7 @@ public class AddressBook2 {
         searchfirstName = sc.next();
         searchlastName = sc.next();
         book2.deleteContact(searchfirstName,searchlastName);
+        System.out.println("Details of all contacts : ");
         book2.displayAllContacts();
     }
 }

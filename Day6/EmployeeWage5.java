@@ -1,7 +1,15 @@
 import java.util.*;
-class EmpCompany
+interface CompanyStore
 {
-    int wagePerHour = 20, totalWorkingDays = 30, maxhours = 0;
+    public int findAttendance();
+    public int calcWage();
+    public void findWage();
+    public int findFullTimeMonthlyWage();
+    public  int findPartTimeMonthlyWage();
+}
+class EmpCompany implements CompanyStore
+{
+    int wagePerHour, totalWorkingDays, maxhours;
     int empHours = 0;
     EmpCompany(int wage,int days,int hrs)
     {
@@ -9,23 +17,23 @@ class EmpCompany
         totalWorkingDays = days;
         maxhours = hrs;
     }
-    int findAttendance()
+    public int findAttendance()
     {
         return (int)Math.floor(Math.random() * 10) % 3;
     }
-    int findWage(int empHours)
+    public int calcWage()
     {
         return empHours*wagePerHour;
     }
-    int findFullTimeMonthlyWage()
+    public int findFullTimeMonthlyWage()
     {
         return 8*totalWorkingDays;
     }
-    int findPartTimeMonthlyWage()
+    public int findPartTimeMonthlyWage()
     {
         return 4*totalWorkingDays;
     }
-    void findWage()
+    public void findWage()
     {
         int workingDays=0;
         while(empHours<=maxhours && workingDays<=totalWorkingDays)
@@ -45,7 +53,7 @@ class EmpCompany
                     System.out.println("Employee is absent");
             }
         }
-        System.out.println("The monthly employee wage is: "+ findWage(empHours));
+        System.out.println("The monthly employee wage is: "+ calcWage());
         System.out.println("The monthly wage of full time employee is: "+findFullTimeMonthlyWage());
         System.out.println("The monthly wage of part time employee is: "+findPartTimeMonthlyWage());
     }

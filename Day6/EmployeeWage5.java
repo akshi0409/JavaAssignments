@@ -102,7 +102,7 @@ class EmployeeWage5
         int wage,days,hrs;
         String name;
         for(int i=0;i<n;i++) {
-            System.out.println("Enter the name,wage per hour, total working days and maximum number of hours: ");
+            System.out.println("Enter the name, wage per hour, total working days and maximum number of hours: ");
             name = sc.next();
             wage = sc.nextInt();
             days = sc.nextInt();

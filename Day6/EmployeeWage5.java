@@ -66,11 +66,11 @@ class EmpCompany implements CompanyStore
 }
 class EmployeeWage5
 {
-    LinkedList<EmpCompany>CompaniesList;
+    ArrayList<EmpCompany>CompaniesList;
     Map<String,EmpCompany>CompaniesMap;
     EmployeeWage5()
     {
-        CompaniesList = new LinkedList<>();
+        CompaniesList = new ArrayList<>();
         CompaniesMap = new HashMap<>();
     }
     void addCompany(String company,int wage, int days,int hrs)
@@ -102,7 +102,7 @@ class EmployeeWage5
         int wage,days,hrs;
         String name;
         for(int i=0;i<n;i++) {
-            System.out.println("Enter the name,wage per hour, total working days and maximum number of hours: ");
+            System.out.println("Enter the name, wage per hour, total working days and maximum number of hours: ");
             name = sc.next();
             wage = sc.nextInt();
             days = sc.nextInt();

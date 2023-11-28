@@ -1,7 +1,7 @@
 import java.util.*;
 class EmpCompany
 {
-    int wagePerHour = 20, totalWorkingDays = 30,maxhours = 0;
+    int wagePerHour = 20, totalWorkingDays = 30, maxhours = 0;
     int empHours = 0;
     EmpCompany(int wage,int days,int hrs)
     {

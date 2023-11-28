@@ -2,11 +2,24 @@ import java.util.Scanner;
 
 public class Maxmin {
     public static Integer findMax(Integer a, Integer b, Integer c) {
-        if (a.compareTo(b) > 0 && a.compareTo(c) > 0)
-            return a;
-        else if (b.compareTo(a) > 0 && b.compareTo(c) > 0)
-            return b;
-        else return c;
+        Integer max = a;
+        if (a.compareTo(max) > 0)
+            max = a;
+        if (b.compareTo(max)>0)
+            max = b;
+        if (c.compareTo(max)>0)
+            max=c;
+        return max;
+    }
+    public static Float findMax(Float a, Float b, Float c) {
+        Float max = a;
+        if (a.compareTo(max) > 0)
+            max = a;
+        if (b.compareTo(max)>0)
+            max = b;
+        if (c.compareTo(max)>0)
+            max=c;
+        return max;
     }
 
     public static void main(String[] args)
@@ -17,10 +30,19 @@ public class Maxmin {
         a = sc.nextInt();
         b = sc.nextInt();
         c = sc.nextInt();
-        Integer n1 = Integer.valueOf(a);
-        Integer n2 = Integer.valueOf(b);
-        Integer n3 = Integer.valueOf(c);
-        System.out.println("The maximum value is: "+findMax(n1,n2,n3));
+        Integer valueI1 = Integer.valueOf(a);
+        Integer valueI2 = Integer.valueOf(b);
+        Integer valueI3 = Integer.valueOf(c);
+        System.out.println("The maximum value is: "+findMax(valueI1,valueI2,valueI3));
+        float a1,b1,c1;
+        System.out.println("Enter the three values to compare: ");
+        a1 = sc.nextFloat();
+        b1 = sc.nextFloat();
+        c1 = sc.nextFloat();
+        Float valueF1 = Float.valueOf(a1);
+        Float valueF2 = Float.valueOf(b1);
+        Float valueF3 = Float.valueOf(c1);
+        System.out.println("The maximum value is: "+findMax(valueF1,valueF2,valueF3));
     }
 }
 /* Test cases:
@@ -28,5 +50,12 @@ Integer:
 1- 4 2 3
 2- 2 4 3
 3- 3 2 4
-4- 2 2 2
+4- 2 2 1
+5- 2 2 2
+Float:
+1- 5.6 1.2 3.4
+2- 1.7 7.8 2.3
+3- 2.3 4.5 8.9
+4- 1.2 1.2 1.2
+5- 2.3 2.3 1.4
  */

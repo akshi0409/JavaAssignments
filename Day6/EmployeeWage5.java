@@ -66,11 +66,11 @@ class EmpCompany implements CompanyStore
 }
 class EmployeeWage5
 {
-    LinkedList<EmpCompany>CompaniesList;
+    ArrayList<EmpCompany>CompaniesList;
     Map<String,EmpCompany>CompaniesMap;
     EmployeeWage5()
     {
-        CompaniesList = new LinkedList<>();
+        CompaniesList = new ArrayList<>();
         CompaniesMap = new HashMap<>();
     }
     void addCompany(String company,int wage, int days,int hrs)

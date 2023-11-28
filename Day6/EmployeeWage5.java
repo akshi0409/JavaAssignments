@@ -59,7 +59,7 @@ class EmpCompany implements CompanyStore
             System.out.println("The wage for the day is : " + dailyWage);
         }
         totalEmpWage = empHours*wagePerHour;
-        System.out.println("The monthly employee wage is: "+ totalEmpWage + " for company: "+company);
+        System.out.println("The total employee wage is: "+ totalEmpWage + " for company: "+company);
         System.out.println("The monthly wage of full time employee is: "+findFullTimeMonthlyWage());
         System.out.println("The monthly wage of part time employee is: "+findPartTimeMonthlyWage());
     }
@@ -110,6 +110,9 @@ class EmployeeWage5
             builder.addCompany(name,wage,days,hrs);
         }
         builder.computeWage();
-
+        String companySearch;
+        System.out.println("Enter the company you want to search: ");
+        companySearch = sc.next();
+        System.out.println("The total wage for the company "+companySearch+" is: " + builder.getWage(companySearch));
     }
 }

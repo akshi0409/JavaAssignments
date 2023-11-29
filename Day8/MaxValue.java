@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MaxValue <E extends Comparable<E>>{
     E a,b,c;
     MaxValue(E a, E b, E c)
@@ -6,9 +8,10 @@ public class MaxValue <E extends Comparable<E>>{
         this.b = b;
         this.c = c;
     }
-    public E findMax()
+    public void findMax()
     {
-        return findMax(a,b,c);
+        E max = findMax(a,b,c);
+        printMax(max);
     }
     public static <E extends Comparable<E>> E findMax(E a, E b, E c)
     {
@@ -21,14 +24,20 @@ public class MaxValue <E extends Comparable<E>>{
             max=c;
         return max;
     }
+    public static <E> void printMax(E max)
+    {
+        System.out.println("The max value is: "+max);
+    }
     public static void main(String[] args)
     {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the number of values to compare for string: ");
         Integer valueI1 = 5,valueI2=6,valueI3=7;
         Float valueF1 = 1.5f, valueF2 = 1.2f, valueF3 = 5.6f;
         String valueS1 = "ab",valueS2 = "cz", valueS3 = "ef";
-        System.out.println("The max integer is : "+ new MaxValue<Integer>(valueI1,valueI2,valueI3).findMax());
-        System.out.println("The max float is : "+ new MaxValue<Float>(valueF1,valueF2,valueF3).findMax());
-        System.out.println("The max string is : "+ new MaxValue<String>(valueS1,valueS2,valueS3).findMax());
+        new MaxValue<Integer>(valueI1,valueI2,valueI3).findMax();
+        new MaxValue<Float>(valueF1,valueF2,valueF3).findMax();
+        new MaxValue<String>(valueS1,valueS2,valueS3).findMax();
     }
 }
 /* Test cases:

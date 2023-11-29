@@ -1,28 +1,24 @@
 import java.util.Scanner;
 
 public class MaxValue <E extends Comparable<E>>{
-    E a,b,c;
-    MaxValue(E a, E b, E c)
+    E a[];
+    MaxValue(E a[])
     {
         this.a = a;
-        this.b = b;
-        this.c = c;
     }
     public void findMax()
     {
-        E max = findMax(a,b,c);
-        printMax(max);
+        findMax(a);
     }
-    public static <E extends Comparable<E>> E findMax(E a, E b, E c)
+    public static <E extends Comparable<E>> void findMax(E a[])
     {
-        E max = a;
-        if (a.compareTo(max) > 0)
-            max = a;
-        if (b.compareTo(max)>0)
-            max = b;
-        if (c.compareTo(max)>0)
-            max=c;
-        return max;
+        E max = a[0];
+        for(int i=1;i<a.length;i++)
+        {
+            if(a[i].compareTo(max)>0)
+                max=a[i];
+        }
+        printMax(max);
     }
     public static <E> void printMax(E max)
     {
@@ -31,13 +27,31 @@ public class MaxValue <E extends Comparable<E>>{
     public static void main(String[] args)
     {
         Scanner sc= new Scanner(System.in);
+        int n;
+        System.out.println("Enter the number of values to compare for integer: ");
+        n = sc.nextInt();
+        System.out.println("Enter the strings: ");
+        Integer[] intArray = new Integer[n];
+        for(int i=0;i<n;i++) {
+            intArray[i] = sc.nextInt();
+        }
+        System.out.println("Enter the number of values to compare for float: ");
+        n = sc.nextInt();
+        System.out.println("Enter the values: ");
+        Float[] floatArray = new Float[n];
+        for(int i=0;i<n;i++) {
+            floatArray[i] = sc.nextFloat();
+        }
         System.out.println("Enter the number of values to compare for string: ");
-        Integer valueI1 = 5,valueI2=6,valueI3=7;
-        Float valueF1 = 1.5f, valueF2 = 1.2f, valueF3 = 5.6f;
-        String valueS1 = "ab",valueS2 = "cz", valueS3 = "ef";
-        new MaxValue<Integer>(valueI1,valueI2,valueI3).findMax();
-        new MaxValue<Float>(valueF1,valueF2,valueF3).findMax();
-        new MaxValue<String>(valueS1,valueS2,valueS3).findMax();
+        n = sc.nextInt();
+        System.out.println("Enter the strings: ");
+        String[] stringArray = new String[n];
+        for(int i=0;i<n;i++) {
+            stringArray[i] = sc.next();
+        }
+        new MaxValue<Integer>(intArray).findMax();
+        new MaxValue<Float>(floatArray).findMax();
+        new MaxValue<String>(stringArray).findMax();
     }
 }
 /* Test cases:

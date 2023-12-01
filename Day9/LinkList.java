@@ -43,6 +43,15 @@ public class LinkList {
         head = temp.link;
         temp = null;
     }
+    void deleteLastElement()
+    {
+        Node temp = head;
+        while(temp.link.link!=null)
+        {
+            temp = temp.link;
+        }
+        temp.link = null;
+    }
     void printList()
     {
         Node temp = head;
@@ -69,5 +78,8 @@ public class LinkList {
         System.out.println("The list after deletion from beginning is: ");
         ll1.deleteFirstElement();
         ll1.printList();
+        System.out.println("The list after deletion from end is: ");
+        ll2.deleteLastElement();
+        ll2.printList();
     }
 }

@@ -37,6 +37,12 @@ public class LinkList {
             temp.link = n;
         }
     }
+    void deleteFirstElement()
+    {
+        Node temp = head;
+        head = temp.link;
+        temp = null;
+    }
     void printList()
     {
         Node temp = head;
@@ -52,11 +58,16 @@ public class LinkList {
         ll1.insertAtBegin(70);
         ll1.insertAtBegin(30);
         ll1.insertAtBegin(56);
+        System.out.println("The list after insertion at beginning is: ");
         ll1.printList();
         LinkList ll2 = new LinkList();
         ll2.append(56);
         ll2.append(30);
         ll2.append(70);
+        System.out.println("The list after appending items is: ");
         ll2.printList();
+        System.out.println("The list after deletion from beginning is: ");
+        ll1.deleteFirstElement();
+        ll1.printList();
     }
 }

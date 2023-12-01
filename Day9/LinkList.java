@@ -97,6 +97,22 @@ public class LinkList {
         }
         System.out.println(key+" is not found");
     }
+    void addSorted(int val)
+    {
+        Node newNode = new Node(val);
+        if(head == null || head.value>=val) {
+            newNode.link = head;
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while(temp.link!=null && temp.link.value<val)
+        {
+            temp = temp.link;
+        }
+        newNode.link = temp.link;
+        temp.link = newNode;
+    }
     void printList()
     {
         Node temp = head;
@@ -135,5 +151,12 @@ public class LinkList {
         System.out.println("The list after deleting value is: ");
         ll2.deleteValue(40);
         ll2.printList();
+        System.out.println("The sorted linked list: ");
+        LinkList ll3 = new LinkList();
+        ll3.addSorted(56);
+        ll3.addSorted(30);
+        ll3.addSorted(70);
+        ll3.addSorted(40);
+        ll3.printList();
     }
 }

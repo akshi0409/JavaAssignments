@@ -66,6 +66,24 @@ public class LinkList {
         }
         System.out.println(key+" is not found");
     }
+    void insertAfterKey(int val,int key)
+    {
+        Node temp = head;
+        while(temp!=null)
+        {
+            if(temp.value == key)
+            {
+                System.out.println(key+" is found");
+                Node newNode = new Node(val);
+                Node t = temp.link;
+                temp.link = newNode;
+                newNode.link = t;
+                return;
+            }
+            temp = temp.link;
+        }
+        System.out.println(key+" is not found");
+    }
     void printList()
     {
         Node temp = head;
@@ -97,5 +115,8 @@ public class LinkList {
         ll2.printList();
         ll2.searchNode(30);
         ll2.searchNode(40);
+        System.out.println("The list after inserting value after the key is: ");
+        ll2.insertAfterKey(40,56);
+        ll2.printList();
     }
 }

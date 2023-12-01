@@ -22,6 +22,21 @@ public class LinkList {
             head = n;
         }
     }
+    void append(int value)
+    {
+        Node n = new Node(value);
+        if(head == null)
+            head = n;
+        else
+        {
+            Node temp = head;
+            while(temp.link!=null)
+            {
+                temp=temp.link;
+            }
+            temp.link = n;
+        }
+    }
     void printList()
     {
         Node temp = head;
@@ -38,5 +53,10 @@ public class LinkList {
         ll1.insertAtBegin(30);
         ll1.insertAtBegin(56);
         ll1.printList();
+        LinkList ll2 = new LinkList();
+        ll2.append(56);
+        ll2.append(30);
+        ll2.append(70);
+        ll2.printList();
     }
 }

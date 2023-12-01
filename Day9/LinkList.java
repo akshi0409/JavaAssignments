@@ -52,6 +52,20 @@ public class LinkList {
         }
         temp.link = null;
     }
+    void searchNode(int key)
+    {
+        Node temp = head;
+        while(temp!=null)
+        {
+            if(temp.value == key)
+            {
+                System.out.println(key+" is found");
+                return;
+            }
+            temp = temp.link;
+        }
+        System.out.println(key+" is not found");
+    }
     void printList()
     {
         Node temp = head;
@@ -81,5 +95,7 @@ public class LinkList {
         System.out.println("The list after deletion from end is: ");
         ll2.deleteLastElement();
         ll2.printList();
+        ll2.searchNode(30);
+        ll2.searchNode(40);
     }
 }

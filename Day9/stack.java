@@ -22,6 +22,16 @@ public class stack {
             head = n;
         }
     }
+    int peek()
+    {
+        return head.value;
+    }
+    int pop()
+    {
+        stackNode temp = head;
+        head = temp.link;
+        return temp.value;
+    }
     void printList()
     {
         stackNode temp = head;
@@ -38,6 +48,10 @@ public class stack {
         stack.push(30);
         stack.push(56);
         System.out.println("The stack after push operation: ");
+        stack.printList();
+        System.out.println("The top element of the stack is: " + stack.peek());
+        System.out.println("The element popped from the stack is: "+ stack.pop());
+        System.out.println("The element after pop operation is: ");
         stack.printList();
     }
 }

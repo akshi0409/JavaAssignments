@@ -10,6 +10,10 @@ class QueueNode
 }
 public class queue {
     QueueNode head;
+    queue()
+    {
+        head = null;
+    }
     void enqueue(int value)
     {
         QueueNode n = new QueueNode(value);
@@ -31,6 +35,10 @@ public class queue {
         head = temp.link;
         return temp.value;
     }
+    boolean isEmpty()
+    {
+        return head == null;
+    }
     void printList()
     {
         QueueNode temp = head;
@@ -51,6 +59,10 @@ public class queue {
         q.dequeue();
         System.out.println("The list after dequeue operation");
         q.printList();
+        if(q.isEmpty())
+            System.out.println("Queue is empty");
+        else
+            System.out.println("Queue is not empty");
     }
 }
 

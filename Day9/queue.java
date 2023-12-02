@@ -39,7 +39,7 @@ public class queue {
     {
         return head == null;
     }
-    void printList()
+    void display()
     {
         QueueNode temp = head;
         while(temp.link!=null) {
@@ -54,11 +54,11 @@ public class queue {
         q.enqueue(56);
         q.enqueue(30);
         q.enqueue(70);
-        System.out.println("The list after enqueue operation");
-        q.printList();
+        System.out.println("The queue after enqueue operation");
+        q.display();
         q.dequeue();
-        System.out.println("The list after dequeue operation");
-        q.printList();
+        System.out.println("The queue after dequeue operation");
+        q.display();
         if(q.isEmpty())
             System.out.println("Queue is empty");
         else

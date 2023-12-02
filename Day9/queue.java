@@ -25,6 +25,12 @@ public class queue {
             temp.link = n;
         }
     }
+    int dequeue()
+    {
+        QueueNode temp = head;
+        head = temp.link;
+        return temp.value;
+    }
     void printList()
     {
         QueueNode temp = head;
@@ -41,6 +47,9 @@ public class queue {
         q.enqueue(30);
         q.enqueue(70);
         System.out.println("The list after enqueue operation");
+        q.printList();
+        q.dequeue();
+        System.out.println("The list after dequeue operation");
         q.printList();
     }
 }

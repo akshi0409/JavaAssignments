@@ -40,7 +40,7 @@ public class stack {
     {
         return (head == null);
     }
-    void printList()
+    void display()
     {
         stackNode temp = head;
         while(temp.link!=null) {
@@ -56,11 +56,11 @@ public class stack {
         stack.push(30);
         stack.push(56);
         System.out.println("The stack after push operation: ");
-        stack.printList();
+        stack.display();
         System.out.println("The top element of the stack is: " + stack.peek());
         System.out.println("The element popped from the stack is: "+ stack.pop());
         System.out.println("The element after pop operation is: ");
-        stack.printList();
+        stack.display();
         if(stack.isEmpty())
             System.out.println("Queue is empty");
         else

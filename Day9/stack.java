@@ -10,6 +10,10 @@ class stackNode
 }
 public class stack {
     stackNode head;
+    stack()
+    {
+        head = null;
+    }
     void push(int value)
     {
         stackNode n = new stackNode(value);
@@ -32,6 +36,10 @@ public class stack {
         head = temp.link;
         return temp.value;
     }
+    boolean isEmpty()
+    {
+        return (head == null);
+    }
     void printList()
     {
         stackNode temp = head;
@@ -53,6 +61,10 @@ public class stack {
         System.out.println("The element popped from the stack is: "+ stack.pop());
         System.out.println("The element after pop operation is: ");
         stack.printList();
+        if(stack.isEmpty())
+            System.out.println("Queue is empty");
+        else
+            System.out.println("Queue is not empty");
     }
 }
 

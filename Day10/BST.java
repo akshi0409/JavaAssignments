@@ -54,6 +54,14 @@ public class BST {
             return 0;
         return 1 + size(temp.left) + size(temp.right);
     }
+    boolean search(int value,MyBinaryNode temp)
+    {
+        if(temp == null)
+            return false;
+        if(temp.val == value)
+            return true;
+        return search(value,temp.left) || search(value,temp.right);
+    }
     void displayInorder(MyBinaryNode temp)
     {
         if(temp==null)
@@ -71,5 +79,10 @@ public class BST {
         bst.displayInorder(bst.root);
         System.out.println();
         System.out.println("The size of the BST is: "+bst.size(bst.root));
+        boolean searchValue = bst.search(63,bst.root);
+        if(searchValue == true)
+            System.out.println("The value is found in the BST");
+        else
+            System.out.println("The value is not present in BST");
     }
 }

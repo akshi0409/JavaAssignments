@@ -48,13 +48,19 @@ public class BST {
             prev.right = newNode;
         }
     }
-    void display(MyBinaryNode temp)
+    int size(MyBinaryNode temp)
+    {
+        if(temp==null)
+            return 0;
+        return 1 + size(temp.left) + size(temp.right);
+    }
+    void displayInorder(MyBinaryNode temp)
     {
         if(temp==null)
             return;
-        display(temp.left);
+        displayInorder(temp.left);
         System.out.print(temp.val+" ");
-        display(temp.right);
+        displayInorder(temp.right);
     }
     public static void main(String[] args)
     {
@@ -62,8 +68,8 @@ public class BST {
         bst.addValue(56);
         bst.addValue(30);
         bst.addValue(70);
-        bst.display(bst.root);
+        bst.displayInorder(bst.root);
         System.out.println();
-
+        System.out.println("The size of the BST is: "+bst.size(bst.root));
     }
 }

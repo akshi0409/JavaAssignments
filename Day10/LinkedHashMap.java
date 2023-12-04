@@ -48,6 +48,27 @@ public class LinkedHashMap {
         }
         return -1;
     }
+    void removeWord(String word)
+    {
+        MyMapNode temp = head;
+        MyMapNode prev = null;
+        while(temp!=null)
+        {
+            if(temp.key.equals(word)){
+                if(prev == null)
+                {
+                    head = temp.next;
+                }
+                else {
+                    prev.next = temp.next;
+                }
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+
+    }
     void display()
     {
         System.out.println("The elements of the hash map are: ");
@@ -61,7 +82,8 @@ public class LinkedHashMap {
     public static void main(String[] args)
     {
         LinkedHashMap wordMap = new LinkedHashMap();
-        String s = "To be or not to be";
+        String str = "To be or not to be";
+        String s = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
         s = s.toLowerCase();
         String words[] = s.split(" ");
         for(String word:words)
@@ -69,10 +91,12 @@ public class LinkedHashMap {
             wordMap.addNode(word);
         }
         wordMap.display();
-        int frequency = wordMap.findFrequency("to");
+        int frequency = wordMap.findFrequency("paranoid");
         if(frequency == -1)
             System.out.println("The word does not exist");
         else
             System.out.println("The frequency of the word is: "+frequency);
+        wordMap.removeWord("avoidable");
+        wordMap.display();
     }
 }

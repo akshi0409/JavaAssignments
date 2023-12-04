@@ -37,6 +37,17 @@ public class LinkedHashMap {
         MyMapNode newNode = new MyMapNode(word);
         temp.next = newNode;
     }
+    int findFrequency(String word)
+    {
+        MyMapNode temp = head;
+        while(temp!=null)
+        {
+            if(temp.key.equals(word))
+                return temp.value;
+            temp = temp.next;
+        }
+        return -1;
+    }
     void display()
     {
         System.out.println("The elements of the hash map are: ");
@@ -58,5 +69,10 @@ public class LinkedHashMap {
             wordMap.addNode(word);
         }
         wordMap.display();
+        int frequency = wordMap.findFrequency("to");
+        if(frequency == -1)
+            System.out.println("The word does not exist");
+        else
+            System.out.println("The frequency of the word is: "+frequency);
     }
 }

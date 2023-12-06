@@ -1,5 +1,6 @@
 import org.example.UserRegistrationProblem;
 import org.junit.*;
+import org.junit.Test;
 public class UserRegistrationProblemTest {
     @Test
     public void firstNameTest()
@@ -42,4 +43,5 @@ public class UserRegistrationProblemTest {
         Assert.assertFalse("The name is valid",password.matchPassword("w9E34q5u"));
         Assert.assertFalse("The name is valid",password.matchPassword("w9E3+4"));
     }
+
 }

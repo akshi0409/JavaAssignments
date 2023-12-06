@@ -11,7 +11,7 @@ public class ParameterizedTest{
     @Parameterized.Parameters
     public static Collection<Object[]> mailList() {
         return Arrays.asList(new Object[][] {
-                { "akshita.asah@gmail", false }, { "akshita.asah@gmail.com", true }, { "akshita.asah@gmail@com", false },{ "akshita.asah04@gmail.com", true },{ "akshita.asah@gmail.com.in", true },{ "akshita.asah@gmail.com.com", false }
+                { "abc.xyz@gmail", false }, { "abc.xyz@gmail.com", true }, { "abc.xyz@gmail@com", false },{ "abc.aaaa04@gmail.com", true },{ "abc.xyz@gmail.com.in", true },{ "abc.xyz@gmail.com.com", false }
         });
     }
 

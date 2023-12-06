@@ -13,11 +13,15 @@ public class UserRegistrationProblem {
     {
         return (Pattern.matches("^[0-9]{1,2}\\s[1-9][0-9]{9}",number));
     }
+    public boolean matchPassword(String firstName){
+        return (Pattern.matches("^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$",firstName));
+    }
     public static void main(String[] args) {
         UserRegistrationProblem user = new UserRegistrationProblem();
         System.out.println(user.matchName("Akshita"));
         System.out.println(user.matchName("Ak"));
         System.out.println(user.matchMail("abcxyz@bl.co.co.in"));
         System.out.println(user.matchNumber("09046371890"));
+        System.out.println(user.matchPassword("9wUf@fabcdeeee"));
     }
 }

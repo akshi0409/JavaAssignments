@@ -1,5 +1,12 @@
 import java.util.regex.Pattern;
-
+class InvalidDetailsException extends Exception
+{
+    public InvalidDetailsException(String str)
+    {
+        // Calling constructor of parent Exception
+        super(str);
+    }
+}
 public class UserRegistration {
     public boolean matchName(String name) {
         return (Pattern.matches("^[A-Z][a-z]{2,}$", name));
@@ -16,10 +23,58 @@ public class UserRegistration {
     }
     public static void main(String[] args) {
         UserRegistration user = new UserRegistration();
-        System.out.println(user.matchName("Akshita"));
-        System.out.println(user.matchName("Aks"));
-        System.out.println(user.matchMail("abcxyz@bl.co.co.in"));
-        System.out.println(user.matchNumber("09046371890"));
-        System.out.println(user.matchPassword("wUf@9fabcdeeee"));
+        try
+        {
+            boolean result = user.matchName("Akshita");
+            if(!result)
+                throw new InvalidDetailsException("Invalid name");
+            System.out.println(result);
+        }
+        catch (InvalidDetailsException e)
+        {
+            System.out.println("Exception Caught : "+e.getMessage());
+        }
+
+        try{
+            boolean result = user.matchName("Ak");
+            if(!result)
+                throw new InvalidDetailsException("Invalid name");
+            else
+                System.out.println(result);
+        }
+        catch (InvalidDetailsException e)
+        {
+            System.out.println("Exception Caught : " + e.getMessage());
+        }
+        try{
+            boolean result = user.matchMail("abcxyz@bl.co.co.in");
+            if(!result)
+                throw new InvalidDetailsException("Invalid mail");
+            System.out.println(result);
+        }
+        catch (InvalidDetailsException e)
+        {
+            System.out.println("Exception Caught : "+e.getMessage());
+        }
+        try{
+            boolean result = user.matchNumber("09046371890");
+            if(!result)
+                throw new InvalidDetailsException("Invalid number");
+            System.out.println(result);
+        }
+        catch (InvalidDetailsException e)
+        {
+            System.out.println("Exception Caught : "+e.getMessage());
+        }
+        try{
+            boolean result = user.matchPassword("wUf@9fabcdeeee");
+            if(!result)
+                throw new InvalidDetailsException("Invalid password");
+            System.out.println(result);
+        }
+        catch (InvalidDetailsException e)
+        {
+            System.out.println("Exception Caught : "+e.getMessage());
+        }
     }
 }

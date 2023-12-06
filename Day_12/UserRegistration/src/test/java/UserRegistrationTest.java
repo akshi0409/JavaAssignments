@@ -22,17 +22,17 @@ public class UserRegistrationTest {
     public void MailTest()
     {
         UserRegistration mail = new UserRegistration();
-        Assert.assertTrue("The name is valid",mail.matchMail("akshita.asah@gmail.com"));
-        Assert.assertFalse("The name is valid",mail.matchMail("akshita.asah@gmail.com.com"));
-        Assert.assertFalse("The name is valid",mail.matchMail("akshita.asah.asah@gmail.com.in"));
+        Assert.assertTrue("The name is valid",mail.matchMail("xyz.abc@gmail.com"));
+        Assert.assertFalse("The name is valid",mail.matchMail("xyz.abc@gmail.com.com"));
+        Assert.assertFalse("The name is valid",mail.matchMail("xyz.abc.asah@gmail.com.in"));
     }
     @Test
     public void MobileTest()
     {
         UserRegistration number = new UserRegistration();
-        Assert.assertTrue("The name is valid",number.matchNumber("91 9876543210"));
-        Assert.assertFalse("The name is valid",number.matchNumber("+91 9876543210"));
-        Assert.assertFalse("The name is valid",number.matchNumber("919876543210"));
+        Assert.assertTrue("The name is valid",number.matchNumber("91 999999999"));
+        Assert.assertFalse("The name is valid",number.matchNumber("+91 9999999999"));
+        Assert.assertFalse("The name is valid",number.matchNumber("919888888888"));
     }
     @Test
     public void passwordTest()

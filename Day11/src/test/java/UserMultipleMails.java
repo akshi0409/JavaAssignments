@@ -12,7 +12,7 @@ public class UserMultipleMails{
     @Parameterized.Parameters
     public static Collection<Object[]> mailList() {
         return Arrays.asList(new Object[][] {
-                { "akshita.asah@gmail", false }, { "akshita.asah@gmail.com", true }, { "akshita.asah@gmail@com", false },{ "akshita.asah04@gmail.com", true },{ "akshita.asah@gmail.com.in", true },{ "akshita.asah@gmail.com.com", false }
+                { "ayz.abc@gmail", false }, { "xyz.abc@gmail.com", true }, { "xyz.abc@gmail@com", false },{ "xyz.abc04@gmail.com", true },{ "xyz.abc@gmail.com.in", true },{ "xyz.abc@gmail.com.com", false }
         });
     }
 

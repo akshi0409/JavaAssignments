@@ -3,7 +3,6 @@ class InvalidDetailsException extends Exception
 {
     public InvalidDetailsException(String str)
     {
-        // Calling constructor of parent Exception
         super(str);
     }
 }
